@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
+#include <unistd.h>
 
 #define ARRAY_SIZE 2000000
 #define STRING_SIZE 16
@@ -7,6 +9,9 @@
 int array_size;
 char **char_array; //[ARRAY_SIZE][STRING_SIZE];
 int char_counts[26];
+struct timeval t1, t2;
+double elapsedTime;
+char hostname[1024];
 
 char getRandomChar()
 {
@@ -72,7 +77,8 @@ void print_results()
      total += char_counts[i];
      printf(" %c %d\n", (char) (i + 97), char_counts[i]);
   }
-  printf("\nTotal characters:  %d\n", total);
+  // DATA <hostname> <array size> <total characters> <elapsed time> <version>
+  printf("DATA\t%s\t%d\t%d\t%f\t%s\n", hostname, array_size, total, elapsedTime, "default");
 }
 
 int main(int argc, char *argv[]) {
@@ -81,10 +87,23 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
+    gethostname(hostname, 1023);
+
     array_size = atoi(argv[1]);
 
+    printf("DEBUG: starting loop on %s\n", hostname);
+
     init_arrays();
+
+    gettimeofday(&t1, NULL);
+
     count_array();
+
+    gettimeofday(&t2, NULL);
+
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0; //sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0; // us to ms
+
     print_results();
 
     return 0;
