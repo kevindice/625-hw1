@@ -1,2 +1,2 @@
 #!/bin/bash
-/homes/dan/mytime
+/homes/kmdice/625-hw2/mytime

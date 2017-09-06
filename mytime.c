@@ -7,11 +7,14 @@ int main() {
     struct timeval t1, t2;
     double elapsedTime;
     int numSlots, myVersion = 1;
+    char hostname[1024];
+
+    gethostname(hostname, 1023);
 
     gettimeofday(&t1, NULL);
 
 
-    printf("DEBUG: starting loop on %s\n", getenv("HOST"));
+    printf("DEBUG: starting loop on %s\n", hostname);
 
     for ( i = 0; i < 100000; i++ ) {
         j += 3;         // do something 
