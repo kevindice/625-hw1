@@ -4,3 +4,5 @@ pt0
 pt0_unroll
 pt0_default
 pt0_tile
+pt0_unroll16
+pt0_unroll8

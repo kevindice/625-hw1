@@ -57,14 +57,57 @@ void free_arrays()
 void count_array()
 {
   char theChar;
-  int i, j, charLoc;
+  int i, charLoc;
 
   for ( i = 0; i < array_size; i++) {
-    for ( j = 0; j < STRING_SIZE; j++ ) {
-             theChar = char_array[i][j];
-         charLoc = ((int) theChar) - 97;
+         charLoc = ((int) char_array[i][0]) - 97;
          char_counts[charLoc]++;
-    }
+
+         charLoc = ((int) char_array[i][1]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][2]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][3]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][4]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][5]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][6]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][7]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][8]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][9]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][10]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][11]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][12]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][13]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][14]) - 97;
+         char_counts[charLoc]++;
+
+         charLoc = ((int) char_array[i][15]) - 97;
+         char_counts[charLoc]++;
+
   }
 }
 
