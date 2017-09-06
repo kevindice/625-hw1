@@ -82,7 +82,7 @@ void print_results()
      printf(" %c %d\n", (char) (i + 97), char_counts[i]);
   }
   // DATA <hostname> <array size> <total characters> <elapsed time> <version>
-  printf("DATA\t%s\t%d\t%d\t%f\t%s\n", hostname, array_size, total, elapsedTime, "default");
+  printf("DATA\t%s\t%d\t%d\t%f\t%s\n", hostname, array_size, total, elapsedTime, "block8");
 }
 
 int main(int argc, char *argv[]) {
