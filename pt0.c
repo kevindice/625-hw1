@@ -83,7 +83,7 @@ void print_results()
 
 int main(int argc, char *argv[]) {
     if(argc != 2){
-        printf("Usage: pt0 <array_size>");
+        printf("Usage: pt0 <array_size>\n");
         exit(1);
     }
 
