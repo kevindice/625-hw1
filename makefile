@@ -6,6 +6,9 @@ mytime: mytime.c
 pt0_default: pt0_default.c
 	cc pt0_default.c -o pt0_default
 
+pt0_compiler_optimized: pt0_compiler_optimized.c
+	cc -O3 pt0_compiler_optimized.c -o pt0_compiler_optimized
+
 pt0_unroll8: pt0_unroll8.c
 	cc pt0_unroll8.c -o pt0_unroll8
 
