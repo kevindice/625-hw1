@@ -3,7 +3,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#define ARRAY_SIZE 2000000
 #define STRING_SIZE 16
 
 int array_size;
