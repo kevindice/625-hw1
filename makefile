@@ -1,4 +1,4 @@
-all: mytime pt0_default pt0_unroll8 pt0_unroll16
+all: mytime pt0_default pt0_unroll8 pt0_unroll16 pt0_block2 pt0_block4 pt0_block8
 
 mytime: mytime.c
 	cc mytime.c -o mytime
@@ -11,3 +11,13 @@ pt0_unroll8: pt0_unroll8.c
 
 pt0_unroll16: pt0_unroll16.c
 	cc pt0_unroll16.c -o pt0_unroll16
+
+pt0_block2: pt0_block2.c
+	cc pt0_block2.c -o pt0_block2
+
+pt0_block4: pt0_block4.c
+	cc pt0_block4.c -o pt0_block4
+
+pt0_block8: pt0_block8.c
+	cc pt0_block8.c -o pt0_block8
+
