@@ -4,7 +4,8 @@
 #define ARRAY_SIZE 2000000
 #define STRING_SIZE 16
 
-char char_array[ARRAY_SIZE][STRING_SIZE];
+int array_size;
+char **char_array; //[ARRAY_SIZE][STRING_SIZE];
 int char_counts[26];
 
 char getRandomChar()
@@ -25,7 +26,7 @@ void init_arrays()
   int i, j, randNum; 
   char randChar;
 
-  for ( i = 0; i < ARRAY_SIZE; i++) {
+  for ( i = 0; i < array_size; i++) {
     for ( j = 0; j < STRING_SIZE; j++ ) {
          char_array[i][j] = getRandomChar();
     }
@@ -41,7 +42,7 @@ void count_array()
   char theChar;
   int i, j, charLoc;
 
-  for ( i = 0; i < ARRAY_SIZE; i++) {
+  for ( i = 0; i < array_size; i++) {
     for ( j = 0; j < STRING_SIZE; j++ ) {
              theChar = char_array[i][j];
          charLoc = ((int) theChar) - 97;
@@ -61,9 +62,29 @@ void print_results()
   printf("\nTotal characters:  %d\n", total);
 }
 
-main() {
+int main(int argc, char *argv[]) {
+    if(argc <= 1){
+        printf("Usage: pt0 <array_size>");
+        exit(1);
+    }
+
+    int i;
+
+    array_size = atoi(argv[1]);
+    char_array = (char **)malloc(sizeof(char *) * array_size);
+    char_array[0] = (char *)malloc(sizeof(char) * array_size * STRING_SIZE);
+
+    for(i = 0; i < array_size; i++) {
+        char_array[i] = (*char_array + i * STRING_SIZE);
+    }
+
     init_arrays();
     count_array();
     print_results();
+
+    free(char_array[0]);
+    free(char_array);
+
+    return 0;
 }
 
