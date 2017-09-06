@@ -1,3 +1,3 @@
 #!/bin/bash
 
-qsub -pe single -q sub-default.sh
+qsub -pe single 1 sub-default.sh
