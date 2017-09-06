@@ -23,8 +23,15 @@ char getRandomChar()
 
 void init_arrays()
 {
-  int i, j, randNum; 
+  int i, j, randNum;
   char randChar;
+
+  char_array = (char **)malloc(sizeof(char *) * array_size);
+  char_array[0] = (char *)malloc(sizeof(char) * array_size * STRING_SIZE);
+
+  for(i = 0; i < array_size; i++) {
+    char_array[i] = (*char_array + i * STRING_SIZE);
+  }
 
   for ( i = 0; i < array_size; i++) {
     for ( j = 0; j < STRING_SIZE; j++ ) {
@@ -35,6 +42,12 @@ void init_arrays()
   for ( i = 0; i < 26; i++ ) {
     char_counts[i] = 0;
   }
+}
+
+void free_arrays()
+{
+  free(char_array[0]);
+  free(char_array);
 }
 
 void count_array()
@@ -63,27 +76,16 @@ void print_results()
 }
 
 int main(int argc, char *argv[]) {
-    if(argc <= 1){
+    if(argc != 2){
         printf("Usage: pt0 <array_size>");
         exit(1);
     }
 
-    int i;
-
     array_size = atoi(argv[1]);
-    char_array = (char **)malloc(sizeof(char *) * array_size);
-    char_array[0] = (char *)malloc(sizeof(char) * array_size * STRING_SIZE);
-
-    for(i = 0; i < array_size; i++) {
-        char_array[i] = (*char_array + i * STRING_SIZE);
-    }
 
     init_arrays();
     count_array();
     print_results();
-
-    free(char_array[0]);
-    free(char_array);
 
     return 0;
 }
