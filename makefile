@@ -1,4 +1,4 @@
-all: mytime pt0_default pt0_unroll8 pt0_unroll16 pt0_block2 pt0_block4 pt0_block8
+all: mytime pt0_default pt0_unroll8 pt0_unroll16 pt0_block2 pt0_block4 pt0_block8 pt0_compiler_optimized pt0_o_fast
 
 mytime: mytime.c
 	cc mytime.c -o mytime
