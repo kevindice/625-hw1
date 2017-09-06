@@ -10,7 +10,7 @@ int main() {
 
     gettimeofday(&t1, NULL);
 
-    
+
     printf("DEBUG: starting loop on %s\n", getenv("HOST"));
 
     for ( i = 0; i < 100000; i++ ) {
